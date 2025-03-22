@@ -18,7 +18,6 @@ const Pokemon = () => {
                 return responseData
             })
             const finalData = await Promise.all(pokamonData)
-            console.log(finalData);
             setPokemonList(finalData);
             setLoading(false);
             
@@ -26,11 +25,9 @@ const Pokemon = () => {
             
             
         } catch (error) {
-            setTimeout(() => {
-            console.log(error.message);
             setLoading(false);
             setError(error)
-            }, 2000);
+            
             
         }
     }
@@ -64,11 +61,9 @@ return (
     </header>
     <div className='pokemon-search'>
         <input type="text" placeholder='Search Pokemon...' value={serachValue} onChange={(e)=> setSerachValue(e.target.value)}  />
-
     </div>
     <div>
         <ul className='cards'>
-            
             {
             searchData.map((item)=>{
                 return (
