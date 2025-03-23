@@ -3,7 +3,7 @@ import PokemonCard from './PokemonCard'
 import './PokemonCard.css'
 
 const Pokemon = () => {
-    const API = "https://pokeapi.co/api/v2/pokemon?limit=400"
+    const API = "https://pokeapi.co/api/v2/pokemon?limit=649"
     const [pokemonList, setPokemonList] = useState([])
     const [loading,setLoading] = useState(true)
     const [error,setError] = useState(null)
@@ -19,6 +19,7 @@ const Pokemon = () => {
             })
             const finalData = await Promise.all(pokamonData)
             setPokemonList(finalData);
+            
             setLoading(false);
         } catch (error) {
             setLoading(false);
