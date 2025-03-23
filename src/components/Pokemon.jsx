@@ -26,7 +26,7 @@ const Pokemon = () => {
             setError(error)
         }
     }
-    
+
     useEffect(()=>{
         apiData()
     },[])
