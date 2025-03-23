@@ -3,7 +3,7 @@ import PokemonCard from './PokemonCard'
 import './PokemonCard.css'
 
 const Pokemon = () => {
-    const API = "https://pokeapi.co/api/v2/pokemon?limit=200"
+    const API = "https://pokeapi.co/api/v2/pokemon?limit=100"
     const [pokemonList, setPokemonList] = useState([])
     const [loading,setLoading] = useState(true)
     const [error,setError] = useState(null)
@@ -20,15 +20,9 @@ const Pokemon = () => {
             const finalData = await Promise.all(pokamonData)
             setPokemonList(finalData);
             setLoading(false);
-            
-            
-            
-            
         } catch (error) {
             setLoading(false);
             setError(error)
-            
-            
         }
     }
     
@@ -38,14 +32,14 @@ const Pokemon = () => {
 
     // create search filter logic 
     const searchData = pokemonList.filter((newValue)=> newValue.name.toLowerCase().includes(serachValue.toLocaleLowerCase()));
-
+    // loading code
     if(loading){
         return (
             <div className='loader'>
-
         </div>
         )
     }
+    // error code
     if(error){
         return (
             <div className='error-box'>
@@ -53,6 +47,7 @@ const Pokemon = () => {
         </div>
         )
     }
+    // main code 
 return (
     <>
    <section className='container'>
@@ -74,9 +69,9 @@ return (
         </ul>
     </div>
 
-   </section>
+    </section>
     </>
-  )
+)
 }
 
 export default Pokemon
