@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import PokemonCard from './PokemonCard'
 import './PokemonCard.css'
+import LoadingBar from 'react-top-loading-bar';
 
 const Pokemon = () => {
     const API = "https://pokeapi.co/api/v2/pokemon?limit=649"
@@ -8,22 +9,28 @@ const Pokemon = () => {
     const [loading,setLoading] = useState(true)
     const [error,setError] = useState(null)
     const [serachValue,setSerachValue] = useState("")
+    const [loadingBar,setLoadingBar] = useState(10) 
+    
     const apiData = async ()=>{
         try {
+            setLoadingBar(40)
             const res = await fetch(API)
             const data = await res.json()
-            const pokamonData = data.results.map( async(item,index)=>{
+            const pokamonData = data.results.map( async(item)=>{
                 const res = await fetch(item.url)
                 const responseData = await res.json()
+                setLoadingBar(70)
                 return responseData
             })
             const finalData = await Promise.all(pokamonData)
             setPokemonList(finalData);
-            
+            setLoadingBar(0)
             setLoading(false);
+            
         } catch (error) {
             setLoading(false);
             setError(error)
+            setLoadingBar(80)
         }
     }
 
@@ -36,8 +43,11 @@ const Pokemon = () => {
     // loading code
     if(loading){
         return (
+            <>
+            <LoadingBar color="#09122C" progress={loadingBar} height={4} onLoaderFinished={()=> setLoadingBar(0)} />
             <div className='loader'>
         </div>
+            </>
         )
     }
     // error code
