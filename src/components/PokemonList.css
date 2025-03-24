@@ -28,3 +28,15 @@
     }
     
   }
+  .page-list li:first-child{
+    padding: 10px 20px;
+    background: #d84040;
+    color: white;
+    border-radius: 10px;
+  }
+  .page-list li:last-child{
+    padding: 10px 20px;
+    background: #d84040;
+    color: white;
+    border-radius: 10px;
+  }
