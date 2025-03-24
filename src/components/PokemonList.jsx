@@ -55,6 +55,7 @@ const PokemonList = ({ pokemonList }) => {
                     className="page-list"
                     previousLabel={"← Prev"}
                     nextLabel={"Next →"}
+                    pageRangeDisplayed={2}
                     pageCount={pageCount}
                     onPageChange={handlePageChange} // Updated function
                     containerClassName={"pagination"}
