@@ -235,15 +235,9 @@
       cursor: pointer;
     }
   }
-  @media (max-width:750px) {
-    .cards{
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .container{
-      width: 70rem;
-    }
   
-  }
+  
+  
   @media (max-width:400px) {
     .cards{
       display: flex;

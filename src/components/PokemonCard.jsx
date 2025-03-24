@@ -39,12 +39,10 @@ const PokemonCard = ({pokamonData}) => {
                 <p>{pokamonData.abilities.map((item)=> item.ability.name).slice(0,1).join(" , ")}</p>
                 <span>Abilities:</span>
             </div>
-
         </div>
 
     </li>
     </>
-
   )
 }
 
