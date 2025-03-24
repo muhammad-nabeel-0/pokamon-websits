@@ -15,8 +15,8 @@
   }
   /* Pagination Styling */
   
-   .active,
-   .page-list li:hover {
+  .active,
+  .page-list li:hover {
     padding: 10px 20px;
     background: #d84040;
     color: white;
@@ -43,9 +43,32 @@
     color: white;
     border-radius: 10px;
   }
-  @media (max-width:400px) {
+  @media (max-width:450px) {
     .page-list{
       font-size: 16px;
+      gap: 6px;
+      justify-content: space-around;
+    }
+   
+    .active,
+    .page-list li:hover {
+      padding: 5px 10px;
+      background: #d84040;
+      color: white;
+      border-radius: 40px;
+      transition: .2s;
+    }
+    .page-list li:first-child{
+      padding: 5px 10px;
+      background: #d84040;
+      color: white;
+      border-radius: 10px;
+    }
+    .page-list li:last-child{
+      padding: 5px 10px;
+      background: #d84040;
+      color: white;
+      border-radius: 10px;
     }
     
   }
