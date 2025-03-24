@@ -40,6 +40,10 @@ const Pokemon = () => {
         apiData();
     }, []);
 
+    const handlePageChange = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     if (loading) {
         return (
             <>
@@ -63,7 +67,7 @@ const Pokemon = () => {
     return (
         <>
             <LoadingBar color="#D84040" progress={loadingBar} height={4} onLoaderFinished={() => setLoadingBar(0)} />
-            <PokemonList pokemonList={pokemonList} />
+            <PokemonList pokemonList={pokemonList} onPageChange={handlePageChange} />
         </>
     );
 };

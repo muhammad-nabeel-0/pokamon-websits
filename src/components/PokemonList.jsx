@@ -19,6 +19,12 @@ const PokemonList = ({ pokemonList }) => {
     const endIndex = startIndex + itemsPerPage;
     const currentItems = filteredPokemon.slice(startIndex, endIndex);
 
+    // **Handle Page Change & Scroll to Top**
+    const handlePageChange = ({ selected }) => {
+        setCurrentPage(selected);
+        window.scrollTo({ top: 0, behavior: "smooth" }); // Smooth scroll to top
+    };
+
     return (
         <section className="container">
             <header>
@@ -45,11 +51,12 @@ const PokemonList = ({ pokemonList }) => {
 
             {/* Pagination Controls */}
             {pageCount > 1 && (
-                <ReactPaginate className="page-list"
+                <ReactPaginate
+                    className="page-list"
                     previousLabel={"← Prev"}
                     nextLabel={"Next →"}
                     pageCount={pageCount}
-                    onPageChange={({ selected }) => setCurrentPage(selected)}
+                    onPageChange={handlePageChange} // Updated function
                     containerClassName={"pagination"}
                     activeClassName={"active"}
                 />
