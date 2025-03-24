@@ -10,7 +10,7 @@
   }
   .page-list li{
     cursor: pointer;
-    transition: .5s;
+    transition: .2s;
   
   }
   /* Pagination Styling */
@@ -21,7 +21,7 @@
     background: #d84040;
     color: white;
     border-radius: 40px;
-    transition: .5s;
+    transition: .2s;
   }
   
 
