@@ -10,17 +10,20 @@
   }
   .page-list li{
     cursor: pointer;
+    transition: .5s;
   
   }
   /* Pagination Styling */
   
-   .active {
+   .active,
+   .page-list li:hover {
     padding: 10px 20px;
     background: #d84040;
     color: white;
-    font-weight: bold;
     border-radius: 40px;
+    transition: .5s;
   }
+  
 
   @media (max-width:1100px) {
     .container{
