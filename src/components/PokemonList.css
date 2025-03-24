@@ -45,13 +45,7 @@
   }
   @media (max-width:450px) {
     .page-list{
-      display: 'flex';
-      align-items: center;
-      max-width: 300px;
-      padding: 10px;
-      margin: auto;
       font-size: 16px;
-      
     }
    
     .active,
