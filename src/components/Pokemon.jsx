@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoadingBar from "react-top-loading-bar";
 import PokemonList from "./PokemonList";
-import git Loader from "./SkeletonLoader";  // Import Skeleton Loader
+import SkeletonLoader from "./SkeletonLoader";  // Import Skeleton Loader
 import "./PokemonList.css";
 import toast, { Toaster } from "react-hot-toast";
 
