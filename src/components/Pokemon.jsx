@@ -3,6 +3,7 @@ import LoadingBar from "react-top-loading-bar";
 import PokemonList from "./PokemonList";
 import SkeletonLoader from "./SkeletonLoader";  // Import Skeleton Loader
 import "./PokemonList.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const Pokemon = () => {
     const API = "https://pokeapi.co/api/v2/pokemon?limit=649";
@@ -27,6 +28,9 @@ const Pokemon = () => {
     const apiData = async () => {
         try {
             setLoadingBar(30);
+            const loadingToast = toast.loading("📡 Data is loading...",{
+                className: "big-toast",
+            });
             const res = await fetch(API);
             const data = await res.json();
             setLoadingBar(60);
@@ -40,12 +44,18 @@ const Pokemon = () => {
             setPokemonList(finalData);
             setLoading(false);
             setLoadingBar(100);
+            toast.dismiss(loadingToast);  // ✅ Remove Loading Toast
+            toast.success("✅ Data loaded successfully!",{
+                className: "big-toast",
+            });
 
             setTimeout(() => setLoadingBar(0), 500);
         } catch (error) {
             setLoading(false);
             setError(error);
             setLoadingBar(100);
+            toast.dismiss();
+            toast.error("❌ Failed to load Pokémon!");
             setTimeout(() => setLoadingBar(0), 500);
         }
     };
@@ -63,6 +73,8 @@ const Pokemon = () => {
             <button className="dark-mode-toggle" onClick={() => setDarkMode(!darkMode)}>
                 {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
             </button>
+
+            <Toaster position="top-right" reverseOrder={false} className =  "big-toast" />
 
             <LoadingBar color="#D84040" progress={loadingBar} height={4} onLoaderFinished={() => setLoadingBar(0)} />
 
