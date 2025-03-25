@@ -78,6 +78,10 @@ input[type="text"] {
   -ms-border-radius: 0.2em 0.2em 0 0;
   -o-border-radius: 0.2em 0.2em 0 0;
 }
+.dark-mode input[type="text"]{
+  border-bottom: 0.2em solid #2ecc71;
+
+}
 
 
 
@@ -155,6 +159,20 @@ input[type="text"] {
   100% {
     transform: translate(-50%, -50%) rotate(360deg);
   }
+}
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.dark-mode .pokemon-card {
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+}
+
+
+.dark-mode-toggle:hover {
+  background: #666;
 }
 
 
